@@ -10,30 +10,29 @@ char *src, *old_src;
 int poolsize;
 int line;
 
-// 用于词法分析，获取下一个标记，它将自动忽略空白字符。
 void next() {
     token = *src++;
     return;
 }
 
-// 用于解析一个表达式
+
 void expression(int level) {
 
 }
 
-// 语法分析的入口，分析整个 C 语言程序。
+
 void program() {
     next(); // get next token
     while (token > 0) {
-        printf("token is %c\n", token);
+        printf("%c", token);
         next();
     }
 }
 
-// 虚拟机的入口，用于解释目标代码。
 int eval() {
     return 0;
 }
+
 
 int main(int argc, char **argv) {
     int i, fd;
