@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <string.h>
+#include <fcntl.h> // for open
+#include <unistd.h> // for close
 
 int token;
 char *src, *old_src;
@@ -53,7 +55,7 @@ int main(int argc, char **argv) {
     }
 
     //read the source file
-    if (i = read(fd, src, poolsize-1) <= 0) {
+    if ((i = read(fd, src, poolsize-1)) <= 0) {
         printf("read return %d\n", i);
         return -1;
     }

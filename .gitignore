@@ -1,2 +1,7 @@
 
 .idea
+*.plist
+Learn02/main.dSYM/Contents/Resources/DWARF/main
+Learn02/.vscode/launch.json
+Learn02/.vscode/tasks.json
+Learn02/main
