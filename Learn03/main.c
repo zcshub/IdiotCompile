@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define int long long
+// #define int long long
 
 int token;              // current token
 char *src, *old_src;    // pointer to source code string;
@@ -21,6 +21,10 @@ int *pc, *bp, *sp, ax, cycle; // virtual machine registers
 enum { LEA, IMM, JMP, CALL, JZ, JNZ, ENT, ADJ, LEV, LI, LC, SI, SC, PUSH,
         OR, XOR, AND, EQ, NE, LT, GT, LE, GE, SHL, SHR, ADD, SUB, MUL, DIV, MOD,
         OPEN, READ, CLOS, PRTF, MALC, MSET, MCMP, EXIT };
+
+const char* insNames[] = { "LEA", "IMM", "JMP", "CALL", "JZ", "JNZ", "ENT", "ADJ", "LEV", "LI", "LC", "SI", "SC", "PUSH",
+        "OR", "XOR", "AND", "EQ", "NE", "LT", "GT", "LE", "GE", "SHL", "SHR", "ADD", "SUB", "MUL", "DIV", "MOD",
+        "OPEN", "READ", "CLOS", "PRTF", "MALC", "MSET", "MCMP", "EXIT" };
 
 void next() {
     token = *src++;
@@ -38,7 +42,6 @@ void program() {
         next();
     }
 }
-
 
 int eval() {
     int op, *tmp;
